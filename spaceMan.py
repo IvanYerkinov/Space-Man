@@ -74,14 +74,14 @@ def spaceman(secret_word):
     Args:
       secret_word (string): the secret word to guess.
     '''
-    life = 3
+    life = len(secret_word)-1
     letters_guessed = list()
     for fill in range(len(secret_word)-1):
         letters_guessed.append("_ ")
     wrong = list()
     #TODO: show the player information about the game according to the project spec
     print("welcome to Spaceman, the goal of this game is to guess a mystery word character by character")
-    print("wrong guess will make you lose a life (7 lives total), \nand correct guesses will show their positions in the word")
+    print(f"""wrong guess will make you lose a life ({life} lives total), \nand correct guesses will show their positions in the word""")
     get_guessed_word(letters_guessed)
     while life > 0 and is_word_guessed(secret_word, letters_guessed) == False:
         #TODO: Ask the player to guess one letter per round and check that it is only one letter
@@ -105,6 +105,8 @@ def spaceman(secret_word):
 
         #TODO: show the guessed word so far
         get_guessed_word(letters_guessed)
+        print("Wrong guesses: ")
+        print(wrong)
     #TODO: check if the game has been won or lost
     if(life == 0):
         print("You've lost the game")
@@ -112,6 +114,7 @@ def spaceman(secret_word):
         print("You've won the game")
     else:
         print("You've lost the game")
+        print("The correct word was: " + secret_word)
 
 
 
