@@ -26,6 +26,7 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
     ans = list(secret_word)
+    ans.pop()
     if letters_guessed == ans:
         return True
     return False
