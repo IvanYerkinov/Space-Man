@@ -110,11 +110,9 @@ def spaceman(secret_word):
     #TODO: check if the game has been won or lost
     if(life == 0):
         print("You've lost the game")
+        print("The correct word was: " + secret_word)
     elif is_word_guessed(secret_word, letters_guessed):
         print("You've won the game")
-    else:
-        print("You've lost the game")
-        print("The correct word was: " + secret_word)
 
 
 
