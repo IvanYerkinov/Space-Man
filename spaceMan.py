@@ -58,15 +58,15 @@ def is_guess_in_word(guess, secret_word, letters_guessed, wrong):
     '''
     #TODO: check if the letter guess is in the secret word
     correct = False
-    for char in range(len(secret_word)):
+    for char in range(len(secret_word)):                #Why is an Int named 'char'
         if guess == secret_word[char]:
             letters_guessed[char] = guess
             correct = True
-    if correct:
-        return True
-    else:
-        wrong.append(guess)
-        return False
+    if correct:                                         # You can simplify this part
+        return True                                     #
+    else:                                               #
+        wrong.append(guess)                             #
+        return False                                    #
 
 def spaceman(secret_word):
     '''
@@ -74,7 +74,7 @@ def spaceman(secret_word):
     Args:
       secret_word (string): the secret word to guess.
     '''
-    life = len(secret_word)-1
+    life = len(secret_word)-1                   #If word is 1 char long then life = 0, If word is more than 27 then you cannot lose
     letters_guessed = list()
     for fill in range(len(secret_word)-1):
         letters_guessed.append("_ ")
@@ -87,7 +87,7 @@ def spaceman(secret_word):
         #TODO: Ask the player to guess one letter per round and check that it is only one letter
         invalid = True
         while invalid:
-            guess = input("Please enter a letter: ")
+            guess = input("Please enter a letter: ")            #Possibly add a \n character at the end of that
             if guess.isalpha() and len(guess) == 1:
                 guess = guess.lower()
                 invalid = False
